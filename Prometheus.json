@@ -1,0 +1,101 @@
+{
+	"receiver": "monitoring/alertmanager-config/webhook",
+	"status": "firing",
+	"alerts": [{
+			"status": "firing",
+			"labels": {
+				"alertname": "NodeClockNotSynchronising",
+				"cluster": "dev",
+				"iner": "kube-rbac-proxy",
+				"endpoint": "https",
+				"instance": "k8s-master01",
+				"job": "node-exporter",
+				"namespace": "monitoring",
+				"pod": "node-exporter-j2676",
+				"prometheus": "monitoring/k8s",
+				"service": "node-exporter",
+				"severity": "warning"
+			},
+			"annotations": {
+				"description": "Clock on k8s-master01 is not synchronising. Ensure NTP is configured on this host.",
+				"runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+				"summary": "Clock not synchronising."
+			},
+			"startsAt": "2023-04-04T07:34:03.819Z",
+			"endsAt": "0001-01-01T00:00:00Z",
+			"generatorURL": "http://prometheus-k8s-1:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16\u0026g0.tab=1",
+			"fingerprint": "9f1e4ad69107eab5"
+		}, {
+			"status": "firing",
+			"labels": {
+				"alertname": "NodeClockNotSynchronising",
+				"cluster": "dev",
+				"container": "kube-rbac-proxy",
+				"endpoint": "https",
+				"instance": "k8s-node01",
+				"job": "node-exporter",
+				"namespace": "monitoring",
+				"pod": "node-exporter-bvc2m",
+				"prometheus": "monitoring/k8s",
+				"service": "node-exporter",
+				"severity": "warning"
+			},
+			"annotations": {
+				"description": "Clock on k8s-node01 is not synchronising. Ensure NTP is configured on this host.",
+				"runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+				"summary": "Clock not synchronising."
+			},
+			"startsAt": "2023-04-04T07:59:03.819Z",
+			"endsAt": "0001-01 - 01 T00: 00: 00 Z ",
+			"generatorURL": "http://prometheus-k8s-1:9090/graphimex_maxerror_seconds",
+			"fingerprint": "3c7944e0a950d774"
+		},
+		{
+			"status": "firing",
+			"labels": {
+				"alertname": "NodeClockNotSynchronising",
+				"cluster": "dev",
+				"container": "kube-rbac-proxy",
+				"endpoint": "https",
+				"instance": "k8s-node02",
+				"job": "node-exporter",
+				"namespace": "monitoring",
+				"pod": "node-exporter-g9vhh",
+				"prometheus": "monitoring/k8s",
+				"service": "node-exporter",
+				"severity": "warning "
+			},
+			"annotations": {
+				"description": "Clock on k8s - node02 is not synchronising.Ensure NTP is configured on this host.",
+				"runbook_url": "https: //runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+				"summary": "Clock not synchronising."
+			},
+			"startsAt": "2023-04-04T07:29:33.819Z",
+			"endsAt": "0001-01-01 T00:00:00Z",
+			"generatorURL": "http://prometheus-k8s-1:9090/graph?g0.expr=min_over_time",
+			"fingerprint": "8d902d1dab8db709"
+		}
+	],
+	"groupLabels": {
+		"job": "node-exporter"
+	},
+	"commonLabels": {
+		"alertname": "NodeClockNotSynchronising",
+		"cluster": "dev",
+		"container": "kube-rbac-proxy",
+		"endpoint": "https",
+		"job": "node-exporter",
+		"namespace": "monitoring",
+		"prometheus": "monitoring/k8s",
+		"service": "node-exporter",
+		"severity": "warning"
+	},
+	"commonAnnotations": {
+		"runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+		"summary": "Clock not synchronising."
+	},
+	"externalURL ": "http: //alertmanager-main-0:9093",
+	"version": "4",
+	"groupKey": "{}/{namespace=\"monitoring\"}:{job=\"node-exporter\"}",
+	"truncatedAlerts": 0
+}

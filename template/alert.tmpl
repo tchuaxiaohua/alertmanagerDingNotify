@@ -1,0 +1,58 @@
+{{if eq .Status "resolved"}}
+## Prometheus告警恢复
+---
+**告警级别**: {{ .Labels.severity }}
+
+**告警类型**: {{ .Labels.alertname }}
+{{if .Labels.pod }}
+**故障主机**: {{ .Labels.pod }}
+{{else if .Labels.container }}
+**故障主机**: {{ .Labels.container }}
+{{else if .Labels.hostname }}
+**故障主机**: {{ .Labels.hostname }}
+{{else if .Labels.instance }}
+**故障主机**: {{ .Labels.instance }}
+{{end}}
+{{if .Annotations.Description }}
+**告警详情**: {{ .Annotations.Description }}
+{{else if .Annotations.Summary }}
+**告警详情**: {{ .Annotations.Summary }}
+{{ end }}
+**告警状态**: {{ .Status }} 
+
+**触发时间**: {{ .StartsAt }}
+
+**触发结束时间**: {{ .EndsAt }}
+
+{{else}}
+## Prometheus告警通知
+---
+**告警级别**：{{ .Labels.severity }}
+
+**告警类型**: {{ .Labels.alertname }}
+{{if .Labels.pod }}
+**故障主机**: {{ .Labels.pod }}
+{{else if .Labels.container }}
+**故障主机**: {{ .Labels.container }}
+{{else if .Labels.hostname }}
+**故障主机**: {{ .Labels.hostname }}
+{{else if .Labels.instance }}
+**故障主机**: {{ .Labels.instance }}
+{{end}}
+{{if .Annotations.Description }}
+**告警详情**: {{ .Annotations.Description }}
+{{else if .Annotations.Summary }}
+**告警详情**: {{ .Annotations.Summary }}
+{{ end }}
+**告警状态**: {{ .Status }}
+
+**触发时间**: {{ .StartsAt }}
+
+{{ if .Events }}
+---
+> pod事件:
+{{ range .Events }}
+> * {{ . }}
+{{ end }}
+{{ end }}
+{{ end }}

@@ -1,0 +1,4 @@
+logs
+etc/config
+etc/app-dev.yaml
+etc/app-*

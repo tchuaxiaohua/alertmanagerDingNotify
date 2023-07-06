@@ -1,0 +1,30 @@
+app:
+  host: 0.0.0.0
+  port: 18084
+
+
+log:
+  level: INFO
+  fileName: "./logs/app.log"
+  maxSize: 10
+  maxAge: 7
+  maxBackups: 10
+  comPress: false
+
+dingtoken:
+  tfwms: "**************************"
+  tfpos: "**************************"
+
+
+#  jvm dump 配置
+#  需要配置标签 currentValue: {{ $value }} jvm_dump: true 具体查看
+jvm:
+  # 是否开启dump操作,是指在容器内存达到85%小于90%时，触发jvm dump操作，默认不开启
+  is_dump: true
+  # 内存使用率: 执行dump时 内存使用率最大值和最小值 之所以有这个判断 是因为 有时候内存使用率过高 执行dump操作会导致pod重启 这个值根据实际情况 进行预留
+  dump_min: 85
+  dump_max: 90
+  # 告警时间: 执行dump最大时间和最小时间 指的是当前时间距离发生告警是否超过24h并且小于28h
+  dump_ts_min: 0
+  dump_ts_max: 1
+

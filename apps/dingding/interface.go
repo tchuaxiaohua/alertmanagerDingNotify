@@ -2,9 +2,11 @@ package dingding
 
 import (
 	"fmt"
+
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/config"
+
 	"github.com/CatchZeng/dingtalk/pkg/dingtalk"
 	"github.com/gin-gonic/gin"
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/config"
 	"go.uber.org/zap"
 )
 

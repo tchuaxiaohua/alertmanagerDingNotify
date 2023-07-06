@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/apps/dingding/http"
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/config"
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/middleware"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/apps/dingding/http"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/config"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/middleware"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"

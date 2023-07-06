@@ -1,11 +1,12 @@
 package k8s
 
 import (
+	"runtime"
+
 	"go.uber.org/zap"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
-	"runtime"
 )
 
 type K8s struct {

@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/apps/k8s"
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/config"
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/utils"
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/vars"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/apps/k8s"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/config"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/utils"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/vars"
 
 	"go.uber.org/zap"
 )

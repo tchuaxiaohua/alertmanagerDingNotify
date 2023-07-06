@@ -1,9 +1,9 @@
 package impl
 
 import (
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/apps/dingding"
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/apps/k8s"
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/apps/prometheus"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/apps/dingding"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/apps/k8s"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/apps/prometheus"
 )
 
 type DingService struct {

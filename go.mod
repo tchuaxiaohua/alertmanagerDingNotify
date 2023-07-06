@@ -1,4 +1,4 @@
-module github.com/tchuaxiaohua/alertmanagerDingNodify
+module github.com/tchuaxiaohua/alertmanagerDingNotify
 
 go 1.20
 

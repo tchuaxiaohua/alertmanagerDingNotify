@@ -1,7 +1,7 @@
 package dingding
 
 import (
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/apps/prometheus"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/apps/prometheus"
 )
 
 type DingDing struct {

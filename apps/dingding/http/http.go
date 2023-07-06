@@ -1,8 +1,8 @@
 package http
 
 import (
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/apps/dingding"
-	"github.com/tchuaxiaohua/alertmanagerDingNodify/vars"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/apps/dingding"
+	"github.com/tchuaxiaohua/alertmanagerDingNotify/vars"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"

@@ -6,7 +6,9 @@ const (
 )
 
 var (
-	CmdDump       = []string{"sh", "-c", "jmap -dump:live,format=b,file=/tmp/${HOSTNAME}.hprof 1"}
+	//CmdDump       = []string{"sh", "-c", "jmap -dump:live,format=b,file=/tmp/${HOSTNAME}.hprof 1"}
+	CmdDump       = []string{"sh", "-c", "/devops/dump.sh"}
 	CmdGetPodIP   = []string{"sh", "-c", "echo ${KUBERNETES_POD_IP}"}
-	CmdUploadDump = []string{"sh", "-c", "/usr/bin/oomdump -c 应用触发DUMP -f /tmp/${HOSTNAME}.hprof"}
+	CmdUploadDump = []string{"sh", "-c", "/devops/cloud-station  -f /tmp/${HOSTNAME}.hprof"}
+	//CmdShell      = []string{"sh", "-c", "/devops/dump.sh"}
 )

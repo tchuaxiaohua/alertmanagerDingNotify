@@ -3,7 +3,6 @@ package prometheus
 import (
 	"errors"
 	"fmt"
-	"log"
 	"time"
 
 	"github.com/tchuaxiaohua/alertmanagerDingNotify/apps/k8s"
@@ -103,7 +102,7 @@ func (a *Alert) getEvents() {
 	if err != nil {
 		zap.L().Error("Failed to create k8s client", zap.String("message", "调用下游函数失败"))
 	}
-	// 取podEvents
+	// 获取 podEvents 事件
 	k8sClient.PodName = a.getMap("pod")
 	k8sClient.NameSpace = a.getMap("namespace")
 	k8sClient.ListEvents()
@@ -171,7 +170,6 @@ func AlertRoute(msg *Alert) string {
 	// pod 事件处理 只针对pod告警处理
 	_, ok = msg.Labels["pod"]
 	if ok {
-		log.Println("标签匹配开始收集pod事件:", msg.Labels["pod"])
 		msg.getEvents()
 	}
 	// 数据解析

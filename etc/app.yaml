@@ -12,7 +12,7 @@ log:
   comPress: false
 
 dingtoken:
-  tfwms: "**************************"
+  tfwms: ""
   tfpos: "**************************"
 
 

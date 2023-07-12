@@ -149,3 +149,34 @@ func (a *AlertManager) AlarmRoute() string {
 	}
 	return ""
 }
+
+func AlertRoute(msg *Alert) string {
+	// 判断是否需要执行dump操作
+	_, ok := msg.Labels["jvm_dump"]
+	if ok {
+		if config.C().Jvm.IsDump {
+			// 操作k8s dump
+			err := msg.Dump()
+			if err != nil {
+				zap.L().Warn("jvm dump", zap.String("message", "执行dump操作失败"), zap.String("error", err.Error()))
+				return ""
+			}
+			// 触发dump操作成功 发送钉钉通知
+			zap.L().Info("jvm dump", zap.String("message", "dump成功，查看钉钉通知。获取下载链接"))
+			return ""
+		}
+	}
+
+	// pod 事件处理 只针对pod告警处理
+	_, ok = msg.Labels["pod"]
+	if ok {
+		msg.getEvents()
+	}
+	// 数据解析
+	data, err := utils.ParseTemplate("template/alert.tmpl", msg)
+	if err != nil {
+		zap.L().Error("模板解析失败", zap.String("error", err.Error()), zap.String("message", "解析钉钉告警模板失败"))
+		return ""
+	}
+	return data
+}

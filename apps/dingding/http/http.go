@@ -20,6 +20,7 @@ func SendDingTalk(c *gin.Context) {
 	ins.GetToken(c)
 
 	// 数据解析 如果有多条告警信息 则分批处理发送
+	zap.L().Info("")
 	for _, alertMsg := range ins.AlertManage.Alerts {
 		if err := alertMsg.TimeFormat(); err != nil {
 			zap.L().Error("告警时间解析失败", zap.String("error", err.Error()), zap.String("message", "时间解析出错"))

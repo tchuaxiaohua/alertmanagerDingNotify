@@ -50,9 +50,11 @@
 
 {{ if .Events }}
 ---
-> pod事件:
-{{ range .Events }}
+> <details>
+>   <summary>pod事件</summary>
+> {{ range .Events }}
 > * {{ . }}
-{{ end }}
-{{ end }}
+> {{ end }}
+> {{ end }}
+> </details>
 {{ end }}

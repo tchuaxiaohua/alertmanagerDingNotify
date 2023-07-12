@@ -3,6 +3,7 @@ package prometheus
 import (
 	"errors"
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/tchuaxiaohua/alertmanagerDingNotify/apps/k8s"
@@ -170,6 +171,7 @@ func AlertRoute(msg *Alert) string {
 	// pod 事件处理 只针对pod告警处理
 	_, ok = msg.Labels["pod"]
 	if ok {
+		log.Println("标签匹配开始收集pod事件:", msg.Labels["pod"])
 		msg.getEvents()
 	}
 	// 数据解析

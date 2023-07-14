@@ -24,10 +24,11 @@ type Logger struct {
 }
 
 type Config struct {
-	App  *App              `yaml:"app"`
-	Log  *Logger           `yaml:"log"`
-	Ding map[string]string `yaml:"dingtoken"`
-	Jvm  *Jvm              `yaml:"jvm"`
+	App        *App              `yaml:"app"`
+	Log        *Logger           `yaml:"log"`
+	Ding       map[string]string `yaml:"dingtoken"`
+	Jvm        *Jvm              `yaml:"jvm"`
+	PromLabels *PromLabels       `yaml:"promlabels"`
 }
 
 // NewApp app 默认配置参数
@@ -70,4 +71,9 @@ type Jvm struct {
 	DumpTsMin int  `yaml:"dump_ts_min"`
 	DumpTsMax int  `yaml:"dump_ts_max"`
 	IsDump    bool `yaml:"is_dump"`
+}
+
+type PromLabels struct {
+	JvmLabel   string `yaml:"jvm_label"`
+	EventLabel string `yaml:"event_label"`
 }

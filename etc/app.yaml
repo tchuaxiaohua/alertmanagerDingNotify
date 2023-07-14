@@ -28,3 +28,10 @@ jvm:
   dump_ts_min: 0
   dump_ts_max: 1
 
+# 应用判断告警项时 标签名称
+# 对应的是 Prometheus告警规则中自定义的labels名称 这里之所以抽出来，是为了方便自定义标签
+labels:
+  # 用于 定义触发该告警项时 导出对应pod jvm快照 这里等于是告警项中定义标签 jvm_dump="true"
+  jvm_labels: "jvm_dump"
+  # 用于 定义触发该告警项时 是否获取告警项的对应资源事件(目前只支持pod事件) 这里等于是告警项中定义标签 events="true"
+  event_labels: "events"

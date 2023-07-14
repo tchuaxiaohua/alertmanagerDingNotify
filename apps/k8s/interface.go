@@ -60,15 +60,14 @@ func (k *K8s) GetPod() {
 }
 
 func (k *K8s) ListEvents() {
-	fmt.Printf("开始获取pod事件，pod名称:%s,命名空间:%s\n", k.PodName, k.NameSpace)
 	podEvents, _ := k.ClientSet.CoreV1().Events(k.NameSpace).List(context.TODO(), metav1.ListOptions{})
 	for _, v := range podEvents.Items {
 		if v.Type == "Normal" {
 			continue
 		}
+
 		if strings.HasPrefix(v.Name, k.PodName) {
 			k.Events = append(k.Events, v.Message)
 		}
 	}
-	fmt.Printf("pod事件列表:%s，pod名称:%s,命名空间:%s\n", k.Events, k.PodName, k.NameSpace)
 }

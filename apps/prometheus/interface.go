@@ -152,7 +152,7 @@ func (a *AlertManager) AlarmRoute() string {
 
 func AlertRoute(msg *Alert) string {
 	// 判断是否需要执行dump操作
-	_, ok := msg.Labels["jvm_dump"]
+	_, ok := msg.Labels[config.C().PromLabels.JvmLabel]
 	if ok {
 		if config.C().Jvm.IsDump {
 			// 操作k8s dump
@@ -168,7 +168,7 @@ func AlertRoute(msg *Alert) string {
 	}
 
 	// pod 事件处理 只针对pod告警处理
-	_, ok = msg.Labels["pod"]
+	_, ok = msg.Labels[config.C().PromLabels.EventLabel]
 	if ok {
 		msg.getEvents()
 	}

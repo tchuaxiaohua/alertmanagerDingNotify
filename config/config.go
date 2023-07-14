@@ -74,6 +74,6 @@ type Jvm struct {
 }
 
 type PromLabels struct {
-	JvmLabel   string `yaml:"jvm_label"`
-	EventLabel string `yaml:"event_label"`
+	JvmLabel   string `yaml:"jvm_labels"`
+	EventLabel string `yaml:"event_labels"`
 }
